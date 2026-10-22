@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KnowMatrix | Capital Allocation & MMM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+          colors: { km: { dark: '#030712', panel: '#0B1120', border: '#1E293B', green: '#10B981', accent: '#06B6D4', waste: '#E11D48' } }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #030712; color: #E2E8F0; }
+    .glass-panel { background: rgba(11, 17, 32, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(30, 41, 59, 0.8); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); }
+    .neon-text { text-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+    .fade-in { animation: fadeIn 1s ease-out forwards; opacity: 0; }
+    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+  <!-- Glow Background -->
+  <div class="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-km-green/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
+  <div class="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-km-accent/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 glass-panel border-b-0 border-km-border">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 bg-km-green rounded-sm flex items-center justify-center font-mono font-bold text-km-dark">KM</div>
+        <span class="text-xl font-bold text-white tracking-tight">KnowMatrix</span>
+      </div>
+      <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold tracking-wide">
+        <span class="flex items-center text-km-green"><span class="w-2 h-2 rounded-full bg-km-green mr-2 animate-pulse"></span>THE PLATFORM: Frequentist MMM</span>
+        <span class="flex items-center text-km-accent"><span class="w-2 h-2 rounded-full bg-km-accent mr-2 animate-pulse"></span>THE SERVICE: Strategic Advisory</span>
+      </div>
+      <a href="#audit" class="px-5 py-2.5 bg-white hover:bg-slate-200 text-km-dark font-bold text-sm rounded shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all">
+        Book a Diagnostic
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative pt-40 pb-20 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 z-10 fade-in translate-y-4">
+    <div class="lg:w-[55%]">
+      <h2 class="text-km-waste font-mono font-bold text-sm tracking-widest uppercase mb-4">The Attribution Crisis</h2>
+      <h1 class="text-5xl lg:text-7xl font-extrabold text-white leading-[1.05] mb-6 tracking-tight">
+        Meta says 4x.<br>
+        Google says 3x.<br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-km-green to-km-accent neon-text">Your bank account says 1.5x.</span>
+      </h1>
+      <p class="text-xl text-slate-400 mb-8 leading-relaxed font-light">
+        Stop letting ad networks grade their own homework. We deploy open-source Frequentist MMM (Google Meridian & Meta Robyn) layered with live market telemetry to isolate true incremental profit.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#audit" class="px-8 py-4 bg-km-green hover:bg-emerald-400 text-km-dark font-bold text-lg rounded shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all text-center">
+          Run a Retrospective Audit
+        </a>
+        <a href="#platform" class="px-8 py-4 bg-transparent border border-slate-600 hover:border-slate-400 text-white font-bold text-lg rounded transition-all text-center">
+          See the Platform
+        </a>
+      </div>
+    </div>
+
+    <!-- Video Embed (The Platform) -->
+    <div class="lg:w-[45%] w-full relative animate-float">
+      <div class="absolute -inset-2 bg-gradient-to-r from-km-green to-km-accent rounded-xl blur opacity-20"></div>
+      <div class="relative glass-panel rounded-xl overflow-hidden shadow-2xl border border-slate-700">
+        <div class="h-10 bg-km-dark flex items-center justify-between px-4 border-b border-slate-800">
+          <div class="flex space-x-2"><div class="w-3 h-3 rounded-full bg-km-waste"></div><div class="w-3 h-3 rounded-full bg-amber-500"></div><div class="w-3 h-3 rounded-full bg-km-green"></div></div>
+          <div class="text-[11px] text-slate-400 font-mono tracking-widest">KNOWMATRIX SIMULATOR</div>
+          <div class="w-8"></div>
+        </div>
+        <video class="w-full h-auto aspect-video object-cover" autoplay loop muted playsinline>
+          <source src="brag.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Product + Service Split -->
+  <section id="platform" class="max-w-7xl mx-auto px-6 py-24 z-10 relative">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="text-4xl font-bold text-white mb-4">We sell <span class="text-km-green">Certainty</span>. Not just software.</h2>
+      <p class="text-xl text-slate-400 max-w-3xl mx-auto">A dashboard without execution is useless. We provide the enterprise-grade MMM infrastructure, and our advisory team translates it into boardroom capital reallocation.</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Software -->
+      <div class="glass-panel p-10 rounded-2xl relative overflow-hidden group">
+        <div class="absolute top-0 right-0 p-6 opacity-10 font-mono text-9xl font-bold">01</div>
+        <h3 class="text-km-green font-mono text-sm tracking-widest font-bold mb-2">THE PLATFORM</h3>
+        <h4 class="text-3xl font-bold text-white mb-4">Continuous Growth OS</h4>
+        <p class="text-slate-400 mb-6">Built on robust Frequentist architectures (Google Meridian & Meta Robyn). You get direct access to our simulator.</p>
+        <ul class="space-y-3 text-sm text-slate-300">
+          <li class="flex items-center"><span class="text-km-green mr-3">✦</span> <strong>Dynamic Scenario Planner:</strong> Log into our simulator. Drag a slider to cut Meta spend by 20% and see exactly how it impacts next month's total revenue.</li>
+          <li class="flex items-center"><span class="text-km-green mr-3">✦</span> <strong>Marginal ROAS Tracking:</strong> See in real-time when a channel hits diminishing returns before you burn cash.</li>
+          <li class="flex items-center"><span class="text-km-green mr-3">✦</span> <strong>Always-On Competitor Telemetry:</strong> Live dashboards tracking competitor search conquesting and mobile video deployment.</li>
+          <li class="flex items-center"><span class="text-km-green mr-3">✦</span> <strong>Executive Export:</strong> One-click PDF generation to justify budget requests to the Board or PE Sponsors.</li>
+        </ul>
+      </div>
+
+      <!-- Service -->
+      <div class="glass-panel p-10 rounded-2xl relative overflow-hidden group">
+        <div class="absolute top-0 right-0 p-6 opacity-10 font-mono text-9xl font-bold">02</div>
+        <h3 class="text-km-accent font-mono text-sm tracking-widest font-bold mb-2">THE SERVICE</h3>
+        <h4 class="text-3xl font-bold text-white mb-4">Strategic Advisory</h4>
+        <p class="text-slate-400 mb-6">We do not just hand you a SaaS login and wish you luck. KnowMatrix provides white-glove advisory acting as your outsourced Marketing Intelligence desk.</p>
+        <ul class="space-y-3 text-sm text-slate-300">
+          <li class="flex items-start"><span class="text-km-accent mr-3 mt-1">✔</span> <div><strong>Zero Tech Integration:</strong> We only need aggregated weekly CSVs of channel spend and revenue. No PII. No pixels.</div></li>
+          <li class="flex items-start"><span class="text-km-accent mr-3 mt-1">✔</span> <div><strong>Frequentist Data Science:</strong> Our data team cleans, structures, and runs your data through robust Google Meridian / Meta Robyn architectures.</div></li>
+          <li class="flex items-start"><span class="text-km-accent mr-3 mt-1">✔</span> <div><strong>Digital Due Diligence:</strong> We layer on Semrush SEO/SEM audits, Sensor Tower ad-shocks, and Web Vitals site speed analysis.</div></li>
+          <li class="flex items-start"><span class="text-km-accent mr-3 mt-1">✔</span> <div><strong>Executive Briefing:</strong> You receive a boardroom-ready presentation detailing exact dollar reallocation moves.</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Financial Dashboards (Chart.js) -->
+  <section class="py-24 bg-[#070b14] border-y border-slate-800 z-10 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="mb-16 text-center">
+        <h2 class="text-sm font-mono text-km-green tracking-widest uppercase mb-2">The KnowMatrix Diagnostic Stack</h2>
+        <h3 class="text-3xl font-bold text-white mb-4">Executive Due Diligence & Telemetry</h3>
+        <p class="text-slate-400 max-w-3xl mx-auto">We don't just measure spend. We integrate distinct analysis vectors—from econometric saturation curves to backlink equity—to give CFOs and CMOs institutional certainty.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10">
+        
+        <!-- Graph 1: Marginal ROAS -->
+        <div class="glass-panel p-8 rounded-xl">
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <h4 class="text-xl font-bold text-white mb-1">Marginal ROAS & Channel Saturation</h4>
+              <p class="text-xs text-slate-400 font-mono">Frequentist MMM (Google Meridian / Meta Robyn)</p>
+            </div>
+            <span class="px-3 py-1 bg-km-waste/20 text-km-waste text-xs font-bold rounded">ACTION REQUIRED</span>
+          </div>
+          <div class="relative h-64 w-full"><canvas id="saturationChart"></canvas></div>
+          <p class="mt-6 text-sm text-slate-300 leading-relaxed border-l-2 border-km-waste pl-4">
+            <strong class="text-white">Insight:</strong> Meta Ads (Red) have hit diminishing returns. Shifting $30k to Google Non-Brand (Green) yields higher marginal ROAS.
+          </p>
+        </div>
+
+        <!-- Graph 2: Search Interest -->
+        <div class="glass-panel p-8 rounded-xl">
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <h4 class="text-xl font-bold text-white mb-1">Longitudinal Search Interest</h4>
+              <p class="text-xs text-slate-400 font-mono">Normalized Search Volume Over 3 Years</p>
+            </div>
+          </div>
+          <div class="relative h-64 w-full"><canvas id="searchChart"></canvas></div>
+          <p class="mt-6 text-sm text-slate-300 leading-relaxed border-l-2 border-km-green pl-4">
+            <strong class="text-white">Insight:</strong> Target brand demand is stagnating while Comp 1 scales exponentially through un-cannibalized generic search.
+          </p>
+        </div>
+
+        <!-- Graph 3: Backlink Equity -->
+        <div class="glass-panel p-8 rounded-xl">
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <h4 class="text-xl font-bold text-white mb-1">Backlink Equity & Organic Moat</h4>
+              <p class="text-xs text-slate-400 font-mono">DoFollow vs NoFollow Distribution (Semrush)</p>
+            </div>
+          </div>
+          <div class="relative h-64 w-full"><canvas id="backlinkChart"></canvas></div>
+          <p class="mt-6 text-sm text-slate-300 leading-relaxed border-l-2 border-km-accent pl-4">
+            <strong class="text-white">Insight:</strong> Target holds strong DoFollow equity (53%), but relies too heavily on image links over authoritative editorial text.
+          </p>
+        </div>
+
+        <!-- Matrix: Competitor Conquesting -->
+        <div class="glass-panel p-8 rounded-xl">
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <h4 class="text-xl font-bold text-white mb-1">Paid Keyword Conquesting Matrix</h4>
+              <p class="text-xs text-slate-400 font-mono">Vulnerability to Competitor Bidding</p>
+            </div>
+          </div>
+          <div class="overflow-x-auto mt-4">
+            <table class="w-full text-left text-sm text-slate-300">
+              <thead class="uppercase bg-[#0a0f1d] font-mono text-slate-400 border-b border-slate-700">
+                <tr>
+                  <th class="p-3">Term</th>
+                  <th class="p-3">Target Pos</th>
+                  <th class="p-3">Comp 1 Pos</th>
+                  <th class="p-3">Conquest Threat</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr class="hover:bg-slate-800/30 transition">
+                  <td class="p-3 font-bold text-white">[Brand Name]</td>
+                  <td class="p-3 text-rose-400">#1 Paid (Waste)</td>
+                  <td class="p-3 text-km-green">#2 Paid</td>
+                  <td class="p-3 text-rose-400">High Cannibalization</td>
+                </tr>
+                <tr class="hover:bg-slate-800/30 transition">
+                  <td class="p-3 font-bold text-white">[Category Head]</td>
+                  <td class="p-3">No Bid</td>
+                  <td class="p-3 text-km-green">#1 Paid</td>
+                  <td class="p-3 text-amber-400">Lost Market Share</td>
+                </tr>
+                <tr class="hover:bg-slate-800/30 transition">
+                  <td class="p-3 font-bold text-white">[High Intent]</td>
+                  <td class="p-3 text-km-green">#2 Paid</td>
+                  <td class="p-3 text-km-green">#1 Paid</td>
+                  <td class="p-3 text-white">Fierce Battleground</td>
+                </tr>
+                <tr class="hover:bg-slate-800/30 transition">
+                  <td class="p-3 font-bold text-white">[Long Tail Solution]</td>
+                  <td class="p-3 text-km-green">#1 Paid</td>
+                  <td class="p-3">No Bid</td>
+                  <td class="p-3 text-km-green">Target Dominance</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section (The Drop) -->
+  <section id="team" class="py-24 relative overflow-hidden z-10 text-center border-t border-slate-800 bg-km-dark">
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <h2 class="text-sm font-mono text-km-accent tracking-widest uppercase mb-2">The KnowMatrix Team</h2>
+      <h3 class="text-4xl font-bold text-white mb-12">Run by Ex-Quant & BCG Experts</h3>
+      
+      <div class="grid md:grid-cols-2 gap-10 text-left">
+        <!-- Bodhisatwa -->
+        <div class="glass-panel p-8 rounded-2xl border-t-2 border-t-km-green hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] transition-all">
+          <h4 class="text-2xl font-bold text-white mb-1">Bodhisatwa Bhattacharya</h4>
+          <p class="text-sm font-mono text-km-green mb-5">Strategy & Econometrics</p>
+          <p class="text-slate-400 leading-relaxed">
+            Ex-BCG Private Equity Commercial Due Diligence across Fintech & Healthcare Tech. Former Quant Trader at Hertshten Group. IIT Madras graduate. Blends rigorous capital allocation theory with mathematical precision.
+          </p>
+        </div>
+        <!-- Soumyadeep -->
+        <div class="glass-panel p-8 rounded-2xl border-t-2 border-t-km-accent hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] transition-all">
+          <h4 class="text-2xl font-bold text-white mb-1">Soumyadeep Pal</h4>
+          <p class="text-sm font-mono text-km-accent mb-5">Systems Architecture</p>
+          <p class="text-slate-400 leading-relaxed">
+            IIM Calcutta (MBA), Jadavpur University IT Gold Medalist. Architect of enterprise-scale machine learning and high-throughput data pipelines. Translates complex econometric models into scalable software products.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="audit" class="py-32 relative overflow-hidden z-10 text-center border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+      <h2 class="text-5xl font-extrabold text-white mb-6">Stop Funding Ignorance.</h2>
+      <p class="text-xl text-slate-400 mb-10 font-light">
+        Hand us 12 months of aggregated CSVs. We run it through our Frequentist MMM engine and overlay your competitors. If we don't find at least <strong class="text-white">$100k in misallocated capital</strong>, the audit is on us.
+      </p>
+      <a href="mailto:partners@knowmatrix.com" class="inline-block px-10 py-5 bg-white hover:bg-slate-200 text-km-dark font-bold text-xl rounded shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all transform hover:scale-105">
+        Request the Diagnostic Audit
+      </a>
+    </div>
+  </section>
+
+  <footer class="bg-km-dark border-t border-slate-800 py-10 text-center text-sm text-slate-500 font-mono">
+    <p>&copy; 2026 KnowMatrix | Built by Experts, Backed by Math.</p>
+  </footer>
+
+  <!-- Chart.js Scripts (With Gradients & Animations) -->
+  <script>
+    Chart.defaults.color = '#64748b';
+    Chart.defaults.font.family = 'Inter';
+
+    function createGradient(ctx, colorStart, colorEnd) {
+      let gradient = ctx.createLinearGradient(0, 0, 0, 300);
+      gradient.addColorStop(0, colorStart);
+      gradient.addColorStop(1, colorEnd);
+      return gradient;
+    }
+
+    // 1. MMM Saturation Chart
+    const ctx1 = document.getElementById('saturationChart').getContext('2d');
+    new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: ['$10k', '$20k', '$30k', '$40k', '$50k', '$60k', '$70k'],
+        datasets: [
+          { 
+            label: 'Google Non-Brand', 
+            data: [20, 45, 65, 80, 92, 100, 105], 
+            borderColor: '#10B981', 
+            backgroundColor: createGradient(ctx1, 'rgba(16,185,129,0.2)', 'rgba(16,185,129,0)'),
+            fill: true, tension: 0.4, borderWidth: 3, pointRadius: 0
+          },
+          { 
+            label: 'Meta Ads', 
+            data: [30, 60, 80, 85, 87, 88, 88], 
+            borderColor: '#E11D48', 
+            backgroundColor: createGradient(ctx1, 'rgba(225,29,72,0.2)', 'rgba(225,29,72,0)'),
+            fill: true, tension: 0.4, borderWidth: 3, pointRadius: 0
+          }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } }, scales: { y: { grid: { color: '#1e293b' }, beginAtZero: true }, x: { grid: { display: false } } }, interaction: { mode: 'nearest', axis: 'x', intersect: false } }
+    });
+
+    // 2. Search Trends Chart
+    const ctx2 = document.getElementById('searchChart').getContext('2d');
+    new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q1', 'Q2'],
+        datasets: [
+          { label: 'Target', data: [45, 50, 48, 52, 50, 49], borderColor: '#10B981', borderDash: [5, 5], tension: 0.1 },
+          { label: 'Comp 1', data: [20, 35, 60, 85, 95, 100], borderColor: '#06B6D4', tension: 0.3 }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { color: '#1e293b' } }, x: { grid: { display: false } } } }
+    });
+
+    // 3. Backlink Stacked Bar
+    const ctx3 = document.getElementById('backlinkChart').getContext('2d');
+    new Chart(ctx3, {
+      type: 'bar',
+      data: {
+        labels: ['Target', 'Comp 1', 'Comp 2'],
+        datasets: [
+          { label: 'DoFollow', data: [53, 53, 48], backgroundColor: '#10B981' },
+          { label: 'NoFollow', data: [32, 32, 32], backgroundColor: '#06B6D4' },
+          { label: 'UGC', data: [15, 15, 20], backgroundColor: '#E11D48' }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, grid: { color: '#1e293b' }, max: 100 } } }
+    });
+  </script>
+</body>
+</html>
